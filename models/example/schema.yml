@@ -1,6 +1,15 @@
 version: 2
 
 sources:
+  - name: raw_all_weather 
+    database: "lemans2k26-project"
+    schema: weather
+    tables:
+      - name: weather_master
+        identifier: weather_master
+
+
+
   - name: raw_LeMans_2025 
     database: "lemans2k26-project"
     schema: LeMans_2025

@@ -1,7 +1,119 @@
-
 version: 2
 
 sources:
+  - name: raw_LeMans_2025 
+    database: "lemans2k26-project"
+    schema: LeMans_2025
+    tables:
+      - name: LeMans_2025
+        identifier: race_time
+
+  - name: raw_LeMans_2024 
+    database: "lemans2k26-project"
+    schema: LeMans_2024
+    tables:
+      - name: LeMans_2024
+        identifier: race_time        
+
+  - name: raw_Imola_2024
+    database: "lemans2k26-project"
+    schema: Imola_2024
+    tables:
+      - name: Imola_2024
+        identifier: race_time 
+
+  - name: raw_Imola_2025
+    database: "lemans2k26-project"
+    schema: Imola_2025
+    tables:
+      - name: Imola_2025
+        identifier: race_time 
+
+  - name: raw_Qatar_2025
+    database: "lemans2k26-project"
+    schema: Qatar_2025
+    tables:
+      - name: Qatar_2025
+        identifier: race_time 
+
+  - name: raw_Qatar_2024
+    database: "lemans2k26-project"
+    schema: Qatar_2024
+    tables:
+      - name: Qatar_2024
+        identifier: race_time 
+
+  - name: raw_Spa_2025
+    database: "lemans2k26-project"
+    schema: Spa_2025
+    tables:
+      - name: Spa_2025
+        identifier: race_time 
+
+  - name: raw_Spa_2024
+    database: "lemans2k26-project"
+    schema: Spa_2024
+    tables:
+      - name: Spa_2024
+        identifier: race_time 
+
+  - name: raw_Americas_2024
+    database: "lemans2k26-project"
+    schema: Americas_2024
+    tables:
+      - name: Americas_2024
+        identifier: race_time
+
+  - name: raw_Americas_2025
+    database: "lemans2k26-project"
+    schema: usa_2025
+    tables:
+      - name: Americas_2025
+        identifier: race_time_usa_2025
+
+  - name: raw_saopaulo_2025
+    database: "lemans2k26-project"
+    schema: saopaulo_2025
+    tables:
+      - name: saopaulo_2025
+        identifier: race_time_saopaulo_2025        
+
+  - name: raw_saopaulo_2024
+    database: "lemans2k26-project"
+    schema: Saopaulo_2024
+    tables:
+      - name: saopaulo_2024
+        identifier: race_time
+
+  - name: raw_fuji_2025
+    database: "lemans2k26-project"
+    schema: fuji_2025
+    tables:
+      - name: fuji_2025
+        identifier: race_time_fuji_2025        
+
+  - name: raw_fuji_2024
+    database: "lemans2k26-project"
+    schema: Fuji_2024
+    tables:
+      - name: fuji_2024
+        identifier: race_time
+
+  - name: raw_bahrein_2025
+    database: "lemans2k26-project"
+    schema: Bahrein_2025
+    tables:
+      - name: bahrein_2025
+        identifier: race_time_barhein       
+
+  - name: raw_bahrein_2024
+    database: "lemans2k26-project"
+    schema: Bahrain_2024
+    tables:
+      - name: bahrein_2024
+        identifier: race_time 
+
+
   - name: lm_histo
     database: lemans2k26-project
     schema: lm_histo
@@ -13,4 +125,4 @@ sources:
       - name: lm_24_raw
         identifier: lm_24
       - name: lm_25_raw
-        identifier: lm_25
+        identifier: lm_25        

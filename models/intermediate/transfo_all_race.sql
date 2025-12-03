@@ -31,4 +31,4 @@ PIT_TIME AS pit_time,
 year_race,
 circuit,
 LEFT(CAST(` HOUR`AS STRING),5)AS time_hhmm
-FROM  {{ ref('unionall_race_24_25') }}      
+FROM  {{ ref('unionall_race_24_25') }}    

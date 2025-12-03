@@ -9,5 +9,5 @@ weather.wind_speed,
 weather.wind_direction,
 weather.rain,
 FROM {{ ref('transfo_all_race') }} AS races
-LEFT JOIN {{ ref('weather_master_transfo') }} AS weather
-ON races.year_race=weather.year_race AND races.circuit=weather.circuit AND races.time_hhmm=weather.time_hhmm
+LEFT JOIN {{ ref('weathernewtime') }} AS weather
+ON races.year_race=weather.year_race AND races.circuit=weather.circuit AND races.time_hhmm=weather.time_hhmm_transfo

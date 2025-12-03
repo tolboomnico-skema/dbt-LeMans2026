@@ -1,21 +1,16 @@
 
 version: 2
 
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+sources:
+  - name: lm_histo
+    database: lemans2k26-project
+    schema: lm_histo
+    tables:
+      - name: lm_22_raw
+        identifier: lm_22
+      - name: lm_23_raw
+        identifier: lm_23        
+      - name: lm_24_raw
+        identifier: lm_24
+      - name: lm_25_raw
+        identifier: lm_25

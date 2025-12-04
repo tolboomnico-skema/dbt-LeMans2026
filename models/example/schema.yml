@@ -8,6 +8,12 @@ sources:
       - name: weather_master
         identifier: weather_master
 
+  - name: timediff 
+    database: "lemans2k26-project"
+    schema: weather
+    tables:
+      - name: timediff_weather
+        identifier: timediff_weather
 
 
   - name: raw_LeMans_2025 

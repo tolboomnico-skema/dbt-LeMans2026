@@ -1,4 +1,6 @@
-SELECT
+WITH fill_val AS
+(
+    SELECT
     car_nb,
     driver_nb,
     driver_name,
@@ -21,14 +23,10 @@ SELECT
     year_race,
     circuit,
     time_hhmm,
-    datetime_utc AS datetime_utc_old,
-    air_temp AS air_temp_old,
-    track_temp AS track_temp_old,
-    humidity AS humidity_old,
+    day_night,
+
     pressure AS pressure_old,
-    wind_speed AS wind_speed_old,
-    wind_direction AS wind_direction_old,
-    rain AS rain_old,
+
 
     -- Fill-forward columns
     LAST_VALUE(datetime_utc IGNORE NULLS)
@@ -64,3 +62,34 @@ SELECT
               ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS rain
 
 FROM {{ ref('all_races_weather_24_25_clean_new') }}
+)
+
+,
+
+median_values AS (
+    SELECT*,
+
+        -- Median lap time by circuit and by year
+        PERCENTILE_CONT(lap_time_total, 0.5)
+            OVER (PARTITION BY year_race, circuit) AS median_by_circuit,
+
+        -- Median lap time at Le Mans for the same year
+        PERCENTILE_CONT(
+            CASE WHEN circuit = 'LeMans' THEN lap_time_total END,
+            0.5
+        ) OVER (PARTITION BY year_race) AS median_lemans_by_year
+
+    FROM fill_val
+)
+
+SELECT
+    *,
+    (median_lemans_by_year / NULLIF(median_by_circuit, 0)) * lap_time_total
+        AS ponderated_lap_time,
+    CASE
+    WHEN rain = 0 THEN "no_rain"
+    WHEN rain <3 THEN "light_rain"
+    WHEN rain >=3 THEN "heavy_rain"
+    ELSE "" END AS rain_intensity    
+FROM median_values
+WHERE median_lemans_by_year IS NOT NULL

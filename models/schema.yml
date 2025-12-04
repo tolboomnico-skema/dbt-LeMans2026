@@ -1,6 +1,13 @@
 version: 2
 
 sources:
+  - name: day_night 
+    database: "lemans2k26-project"
+    schema: weather
+    tables:
+      - name: day_night
+        identifier: daynight_table
+
   - name: raw_all_weather 
     database: "lemans2k26-project"
     schema: weather

@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-
-version: 2
-
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-=======
 version: 2
 
 sources:
@@ -164,4 +141,3 @@ sources:
         identifier: lm_24
       - name: lm_25_raw
         identifier: lm_25        
->>>>>>> c4e5db0ba40dfde6d75f1b51f571db141e2456ee
